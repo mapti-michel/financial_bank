@@ -30,25 +30,25 @@ public class Pessoa {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID_PESSOA")
+	@Column(name = "ID_PESSOA", unique = true)
 	private Integer idPessoa;
 
 	@CPF(message = "Cpf deve ser válido!")
-	@Column(name = "CPF_PESSOA")
+	@Column(name = "CPF_PESSOA", unique = true)
 	private String cpf;
 
 	@NotBlank(message = "Nome não pode ser nulo e nem vazio!")
 	@Size(min = 3, max = 161, message = "Nome deve conter no máximo {max} caracteres!")
-	@Column(name = "NOME_PESSOA")
+	@Column(name = "NOME_PESSOA", unique = true)
 	private String nome;
 
 	@NotBlank(message = "Telefone não pode ser nulo e nem vazio!")
 	@Size(min = 12, max = 12, message = "Telefone deve possuir {max} caracteres DDDXXXXXXXXX!")
-	@Column(name = "TEL_PESSOA")
+	@Column(name = "TEL_PESSOA", unique = true)
 	private String telefone;
 	
 	@OneToOne
-	@JoinColumn(name = "ID_CONTA")
+	@JoinColumn(name = "ID_CONTA", unique = true)
 	private Conta conta;
 
 }

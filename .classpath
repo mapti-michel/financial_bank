@@ -41,5 +41,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/michel.a.pereira/OneDrive - Accenture/Documents/Accenture [Learning] [External curses]/JavaSpringBoot/TCC/sistema-banco-master/lib/lombok.jar"/>
+	<classpathentry kind="lib" path="C:/Users/michel.a.pereira/OneDrive - Accenture/Documents/Accenture [Learning] [External curses]/JavaSpringBoot/Arquivos Necessários/mysql-connector-java-8.0.25.jar"/>
+	<classpathentry kind="lib" path="C:/Users/michel.a.pereira/Downloads/Programas/Jar/HikariCP-5.0.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

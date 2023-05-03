@@ -32,30 +32,30 @@ public class Conta {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID_CONTA")
+	@Column(name = "ID_CONTA", unique = true)
 	private Integer idConta;
 	
 	@NotNull(message = "Numero da conta não pode ser nula e nem vazia!")
 	@Max(value = 99999999, message = "Número da conta deve possuir {value} caracteres!")
 	@Min(value = 10000000, message = "Número da conta deve possuir {value} caracteres!")
-	@Column(name = "NUMERO_CONTA")
+	@Column(name = "NUMERO_CONTA", unique = true)
 	private Integer numeroConta;
 	
 	@NotNull(message = "Numero do digíto não pode ser nulo e nem vazio!")
 	@Max(value = 9, message = "Número do dígito deve possuir {value} caractere!")
 	@Min(value = 1, message = "Número do dígito deve possuir {value} caractere!")
-	@Column(name = "DIGITO_VERIFICADOR")
+	@Column(name = "DIGITO_VERIFICADOR", unique = true)
 	private Integer digitoVerificador;
 	
 	@NotNull(message = "Saldo não pode ser nulo e nem vazio!")
-	@Column(name = "SALDO_CONTA")
+	@Column(name = "SALDO_CONTA", unique = true)
 	private Double saldo;
 	
 	@OneToMany(mappedBy = "conta")
 	private List<Transacao> transacoes;
 	
 	@ManyToOne
-	@JoinColumn(name = "ID_AGENCIA", nullable = false)	
+	@JoinColumn(name = "ID_AGENCIA", nullable = false, unique = true)	
 	private Agencia agencia;
 
 

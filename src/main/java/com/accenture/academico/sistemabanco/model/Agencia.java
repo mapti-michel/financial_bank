@@ -34,28 +34,28 @@ public class Agencia {
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID_AGENCIA")
+	@Column(name = "ID_AGENCIA", unique = true)
 	private Integer idAgencia;
 	
 	@NotNull(message = "Agencia não pode ser nula!")
 	@Min(value = 1000, message = "Agência deve ter ao menos {value} digitos!")
 	@Max(value = 9999, message = "Agência deve ter no máximo {value} digitos!")
-	@Column(name = "NUMERO_AGENCIA")
+	@Column(name = "NUMERO_AGENCIA", unique = true)
 	private Integer numeroAgencia;
 	
 	@NotBlank(message = "Nome não pode ser nulo e nem vazio!")
 	@Size(min = 3 ,max = 161, message = "Nome deve ter no mínimo {min} e no máximo {max} caracteres!")
-	@Column(name = "NOME_AGENCIA")
+	@Column(name = "NOME_AGENCIA", unique = true)
 	private String nomeAgencia;
 	
 	@NotBlank(message = "Endereço não pode ser nulo e nem vazio!")
 	@Size(max = 161, message = "Endereço deve ter no máximo {max} caracteres!")
-	@Column(name = "END_AGENCIA")
+	@Column(name = "END_AGENCIA", unique = true)
 	private String endereco;
 	
 	@NotBlank(message = "Telefone não pode ser nulo!")
 	@Size(min = 11, max = 11, message = "Telefone deve possuir {min} caracteres DDDXXXXXXXXX!")
-	@Column(name = "TEL_AGENCIA")
+	@Column(name = "TEL_AGENCIA", unique = true)
 	private String telefone;
 	
 	@OneToMany(mappedBy = "agencia")

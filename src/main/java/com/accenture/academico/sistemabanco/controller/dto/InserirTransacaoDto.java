@@ -29,8 +29,6 @@ public class InserirTransacaoDto {
 
 	private Integer idConta;
 	
-	public Integer getIdConta() {
-		return idConta;
-	}
+
 
 }

@@ -33,20 +33,23 @@ public class Transacao {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID_TRANSACAO")
+	@Column(name = "ID_TRANSACAO", unique = true)
 	private Integer idTransacao;
 	
+	@Column(name = "DATA_HORA_MOVIMENTACAO", unique = true)
 	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
 	private LocalDateTime dataHoraMovimentacao;
 	
+	@Column(name = "TIPO_OPERACAO", unique = true)
 	private Integer tipoOperacao;
 	
+	@Column(name = "VALOR", unique = true)
 	@NotNull(message = "Valor não pode ser nulo!")
 	private Double valor;
 
 	@ManyToOne
 	@JsonIgnore
-	@JoinColumn(name = "ID_CONTA", nullable = false)
+	@JoinColumn(name = "ID_CONTA", nullable = false, unique = true)
 	private Conta conta;
 	
 

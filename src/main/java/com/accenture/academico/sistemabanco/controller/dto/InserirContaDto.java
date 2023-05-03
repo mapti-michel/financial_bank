@@ -26,9 +26,6 @@ public class InserirContaDto {
 	private Integer digitoVerificador;
 	
 	private Integer idAgencia;
-	
-	public Integer getIdAgencia() {
-		return idAgencia;
-	}
+
 
 }

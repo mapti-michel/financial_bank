@@ -28,9 +28,6 @@ public class InserirPessoaDto {
 	private String telefone;
 	
 	private Integer idConta;
-	
-	public Integer getIdConta() {
-		return idConta;
-	}
+
 
 }
