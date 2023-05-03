@@ -58,4 +58,5 @@ public class Conta {
 	@JoinColumn(name = "ID_AGENCIA", nullable = false)	
 	private Agencia agencia;
 
+
 }

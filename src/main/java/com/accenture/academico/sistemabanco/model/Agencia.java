@@ -1,6 +1,7 @@
 package com.accenture.academico.sistemabanco.model;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,8 +26,7 @@ import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name = "TB_AGENCIA")
-@Getter
-@Setter
+@Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
@@ -61,4 +61,6 @@ public class Agencia {
 	@OneToMany(mappedBy = "agencia")
 	@JsonIgnore
 	private List<Conta> contas;
+
+
 }

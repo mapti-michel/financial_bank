@@ -28,5 +28,9 @@ public class InserirTransacaoDto {
 	private Double valor;
 
 	private Integer idConta;
+	
+	public Integer getIdConta() {
+		return idConta;
+	}
 
 }

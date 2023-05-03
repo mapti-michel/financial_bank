@@ -21,12 +21,17 @@ public class AgenciaService {
 
 	@SneakyThrows
 	public Agencia cadastrarAgencia(Agencia agencia) {
-			Agencia agenciaPersistida = repository.save(agencia);
+		Agencia agenciaPersistida = repository.save(agencia);
+		
+		try {
 			
 			if (agenciaPersistida == null) {
 				throw new NegocioException("Erro ao salvar agência");
 			}
 			
+		}catch(Exception e) {
+			System.out.print("Erro no exception. Mensagem: " + e.getMessage());
+		}
 			return agenciaPersistida;		
 	}
 	
@@ -36,18 +41,27 @@ public class AgenciaService {
 	
 	@SneakyThrows
 	public Agencia buscarAgenciaPorId(Integer id) {
-				
-		return repository.findById(id)
-				.orElseThrow(() -> new EntityNotFoundException("Agência não encontrada"));
+		try {
+			return repository.findById(id)
+					.orElseThrow(() -> new EntityNotFoundException("Agência não encontrada"));
+			
+		}catch(Exception e) {
+			System.out.print("Erro no exception. Mensagem: " + e.getMessage());
+		}
+		return repository.findById(id).orElseThrow();		
 	}
 	
 	@SneakyThrows
 	public Agencia atualizarAgencia(Agencia agencia) {
-		//buscarAgenciaPorId(agencia.getIdAgencia());		
+		//buscarAgenciaPorId(agencia.getIdAgencia());
 		Agencia agenciaAtualizada = repository.save(agencia);
 		
-		if (agenciaAtualizada == null) {
-			throw new NegocioException("Erro ao atualizar agência");
+		try {
+			if (agenciaAtualizada == null) {
+				throw new NegocioException("Erro ao atualizar agência");
+			}
+		}catch(Exception e){
+			System.out.print("Erro no exception. Mensagem: " + e.getMessage());
 		}
 		return agenciaAtualizada;		
 	}
@@ -56,8 +70,11 @@ public class AgenciaService {
 	public void removerAgenciaPorId(Integer id) {
 		try {
 			repository.deleteById(id);
-		} catch (EmptyResultDataAccessException e) {
-			throw new EntityNotFoundException("É necessário informar um ID válido para exclusão da agência");
+			if(id.equals(null)) {
+				throw new EntityNotFoundException("É necessário informar um ID válido para exclusão da agência");
+			}
+		} catch (Exception e) {
+			System.out.println("É necessário informar um ID válido para exclusão da agência");
 		}		
 	}
 }
