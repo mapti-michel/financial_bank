@@ -40,6 +40,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/michel.a.pereira/Downloads/Programas/lombok.jar"/>
+	<classpathentry kind="lib" path="C:/Users/michel.a.pereira/OneDrive - Accenture/Documents/Accenture [Learning] [External curses]/JavaSpringBoot/TCC/sistema-banco-master/lib/lombok.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
